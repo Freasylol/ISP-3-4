@@ -28,6 +28,13 @@ const useStyles = makeStyles((theme) => ({
   } 
 }))
 
+const getToken = async () => {
+  return await Axios.get('http://localhost:3001/users/login').then((response => {
+    this.setTypes(response.data)
+    return response.data
+  }))
+}
+
 const LoginForm = () => {
   const {user} = useContext(Context)
   const classes = useStyles();
@@ -36,10 +43,10 @@ const LoginForm = () => {
     const emailValue = values.email;
     const passwordValue = values.password;
 
-    // const token = Axios.get('http://localhost:3001/users/login', {
-    //   email: values.email,
-    //   password: values.password,
-    // })
+    const token = Axios.get('http://localhost:3001/users/login', {
+      email: values.email,
+      password: values.password,
+    })
 
     const userInfo = Axios.get(`http://localhost:3001/users/:${emailValue}`)
 

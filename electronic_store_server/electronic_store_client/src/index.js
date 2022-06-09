@@ -4,13 +4,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UserStore from './store/userStore';
 import DeviceStore from './store/deviceStore';
+import BasketStore from './store/basketStore';
 
 export const Context = createContext(null);   
 
 ReactDOM.render(
   <Context.Provider value={{
     user: new UserStore(),
-    device: new DeviceStore()
+    device: new DeviceStore(),
+    basket: new BasketStore(),
   }}>
     <App />
   </Context.Provider>,

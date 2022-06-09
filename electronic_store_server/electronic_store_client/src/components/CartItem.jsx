@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const DeviceItem = ({device, types, brands, deviceStore, basket}) => {
+const CartItem = ({device, types, brands, deviceStore, basket}) => {
   const addToCart = async () => {
       if (!basket.isBasketCreated) {
         basket.setUserId(5);
@@ -60,7 +60,7 @@ const DeviceItem = ({device, types, brands, deviceStore, basket}) => {
       <Grid className={classes.cardItem}>
         <Card>
           <CardContent className={classes.cardContent}>
-            <img src='http://via.placeholder.com/150x150' height="150" width="150"  alt="device img"></img>
+            <img src={imgPath} height="150" width="150"  alt="device img"></img>
             <Typography className={classes.cardTitle}>{deviceType}</Typography>
             <Typography className={classes.cardTitle}>{deviceBrand}</Typography>
             <Typography className={classes.cardTitle}>{device.name}</Typography>
@@ -73,4 +73,4 @@ const DeviceItem = ({device, types, brands, deviceStore, basket}) => {
   )
 }
 
-export default DeviceItem
+export default CartItem

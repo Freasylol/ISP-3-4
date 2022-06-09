@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const DeviceList = observer(() => {
+const CartList = observer(() => {
   const classes = useStyles();
   const {device, basket} = useContext(Context)
   let filterArr = device.devices;
@@ -37,4 +37,4 @@ const DeviceList = observer(() => {
   )
 })
 
-export default DeviceList
+export default CartList
