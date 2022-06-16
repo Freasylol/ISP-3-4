@@ -5,7 +5,9 @@ const useStyles = makeStyles((theme) => ({
   deviceItem: {
     display: 'flex',
     width: '33%',
-    marginBottom: 30
+    marginBottom: 30,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   cardItem: {
     display: 'flex',

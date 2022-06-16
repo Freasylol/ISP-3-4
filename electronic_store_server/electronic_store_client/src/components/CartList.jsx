@@ -1,17 +1,23 @@
 import { useContext } from "react";
 import { makeStyles } from "@material-ui/core";
-import DeviceItem from './DeviceItem'
 import { Context } from '../index'
 import { observer } from 'mobx-react-lite'
+import CartItem from './CartItem'
 
 const useStyles = makeStyles((theme) => ({
   deviceList: {
     paddingTop: 50,
-    display: 'flex'
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   deviceWrapper: {
     display: 'flex',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    marginTop: 100
   }
 }));
 
@@ -31,7 +37,7 @@ const CartList = observer(() => {
   return (
     <div className={classes.deviceWrapper}>
       {filterArr.map((deviceEl) => 
-        <DeviceItem device={deviceEl} types={device.types} brands={device.brands} deviceStore={device} basket={basket}></DeviceItem> 
+        <CartItem device={deviceEl} types={device.types} brands={device.brands} deviceStore={device} basket={basket}></CartItem> 
       )}
     </div>
   )

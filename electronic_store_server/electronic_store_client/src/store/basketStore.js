@@ -1,6 +1,5 @@
 import {makeAutoObservable} from 'mobx'
 import Axios from 'axios'
-import req from 'express/lib/request';
 
 export default class BasketStore {
   constructor() {

@@ -1,11 +1,20 @@
-import { Button } from '@material-ui/core'
-import React from 'react'
-import { makeStyles } from '@material-ui/core';
+import { Button, Container, makeStyles, Grid, } from '@material-ui/core';
+import React from 'react';
 import CartList from '../components/CartList';
 
 const useStyles = makeStyles((theme) => ({
   cart: {
     marginTop: 100
+  },
+  cartGrid: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  cartContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 }));
 
@@ -13,7 +22,11 @@ const useStyles = makeStyles((theme) => ({
 const Cart = () => {
   const classes = useStyles();
   return (
-    <CartList className={classes.cart}></CartList>
+    <Container className={classes.cartContainer}>
+      <Grid container className={classes.cartGrid}>
+        <CartList md={12} className={classes.cart}></CartList>
+      </Grid>
+    </Container>
   )
 }
 
