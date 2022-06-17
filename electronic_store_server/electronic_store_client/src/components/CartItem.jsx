@@ -67,7 +67,6 @@ const CartItem = ({device, types, brands, deviceStore, basket}) => {
             <Typography className={classes.cardTitle}>{deviceBrand}</Typography>
             <Typography className={classes.cardTitle}>{device.name}</Typography>
             <Typography className={classes.cardTitle}>{`Price: ${device.price}`}</Typography>
-            <Button onClick={addToCart}>Add to cart</Button>
           </CardContent>
         </Card>
       </Grid>

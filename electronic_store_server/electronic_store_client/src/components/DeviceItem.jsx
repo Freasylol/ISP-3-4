@@ -1,5 +1,7 @@
-import { Card, CardContent, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Card, CardContent, Grid, makeStyles, requirePropFactory, Typography } from "@material-ui/core";
 import Button from '@mui/material/Button';
+import appleIphone13  from '../img/apple-iphone13.jpg'
+
 
 const useStyles = makeStyles((theme) => ({
   deviceItem: {
@@ -53,14 +55,15 @@ const DeviceItem = ({device, types, brands, deviceStore, basket}) => {
     }
   }
 
-  const imgPath = `../../../static/${device.img}`
-  console.log(imgPath)
+  const imgPath = '../img/iphone13.jpg'
+
   return (
     <Grid container className={classes.deviceItem}>
       <Grid className={classes.cardItem}>
         <Card>
           <CardContent className={classes.cardContent}>
-            <img src='http://via.placeholder.com/150x150' height="150" width="150"  alt="device img"></img>
+            {/* <img src='http://via.placeholder.com/150x150' height="150" width="150"  alt="device img"></img> */}
+            <img src={appleIphone13} height="200" width="150"  alt="device img"></img>
             <Typography className={classes.cardTitle}>{deviceType}</Typography>
             <Typography className={classes.cardTitle}>{deviceBrand}</Typography>
             <Typography className={classes.cardTitle}>{device.name}</Typography>

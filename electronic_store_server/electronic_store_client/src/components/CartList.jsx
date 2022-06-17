@@ -24,19 +24,18 @@ const useStyles = makeStyles((theme) => ({
 const CartList = observer(() => {
   const classes = useStyles();
   const {device, basket} = useContext(Context)
-  let filterArr = device.devices;
-  if (device.selectedBrand.id && device.selectedType.id) {
-    filterArr = device.devices.filter((deviceEl) => deviceEl.BrandId === device.selectedBrand.id)
-    filterArr = filterArr.filter((deviceEl) => deviceEl.TypeId === device.selectedType.id)
-  } else if (device.selectedType.id) {
-    filterArr = device.devices.filter((deviceEl) => deviceEl.TypeId === device.selectedType.id)
-  } else if (device.selectedBrand.id) {
-    filterArr = device.devices.filter((deviceEl) => deviceEl.BrandId === device.selectedBrand.id)
-  } 
+  basket.setBasketItems([
+    {id: 5, name: 'IPhone 13', price: 1000, rating: 5, img: 'http://via.placeholder.com/150x150', TypeId: 35, BrandId: 5 },
+    {id: 5, name: 'IPhone 13 pro', price: 1500, rating: 5, img: 'http://via.placeholder.com/150x150', TypeId: 35, BrandId: 5 },
+    {id: 5, name: 'Samsung galaxy', price: 800, rating: 5, img: 'http://via.placeholder.com/150x150', TypeId: 35, BrandId: 15 },
+    {id: 5, name: 'DeepCool gammax 400', price: 800, rating: 5, img: 'http://via.placeholder.com/150x150', TypeId: 25, BrandId: 35 },
+  ])
+  let basketItems = basket.basketItems
   
+
   return (
     <div className={classes.deviceWrapper}>
-      {filterArr.map((deviceEl) => 
+      {basketItems.map((deviceEl) => 
         <CartItem device={deviceEl} types={device.types} brands={device.brands} deviceStore={device} basket={basket}></CartItem> 
       )}
     </div>

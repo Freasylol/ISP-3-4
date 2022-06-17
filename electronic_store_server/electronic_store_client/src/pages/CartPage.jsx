@@ -1,6 +1,7 @@
 import { Button, Container, makeStyles, Grid, } from '@material-ui/core';
 import React from 'react';
 import CartList from '../components/CartList';
+import Payment from '../components/Payment'
 
 const useStyles = makeStyles((theme) => ({
   cart: {
@@ -13,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cartContainer: {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'
   }
@@ -26,6 +28,7 @@ const Cart = () => {
       <Grid container className={classes.cartGrid}>
         <CartList md={12} className={classes.cart}></CartList>
       </Grid>
+      <Payment></Payment>
     </Container>
   )
 }
