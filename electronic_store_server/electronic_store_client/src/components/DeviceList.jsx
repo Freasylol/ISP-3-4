@@ -20,12 +20,12 @@ const DeviceList = observer(() => {
   const {device, basket} = useContext(Context)
   let filterArr = device.devices;
   if (device.selectedBrand.id && device.selectedType.id) {
-    filterArr = device.devices.filter((deviceEl) => deviceEl.BrandId === device.selectedBrand.id)
-    filterArr = filterArr.filter((deviceEl) => deviceEl.TypeId === device.selectedType.id)
+    filterArr = device.devices.filter((deviceEl) => deviceEl.brandId === device.selectedBrand.id)
+    filterArr = filterArr.filter((deviceEl) => deviceEl.typeId === device.selectedType.id)
   } else if (device.selectedType.id) {
-    filterArr = device.devices.filter((deviceEl) => deviceEl.TypeId === device.selectedType.id)
+    filterArr = device.devices.filter((deviceEl) => deviceEl.typeId === device.selectedType.id)
   } else if (device.selectedBrand.id) {
-    filterArr = device.devices.filter((deviceEl) => deviceEl.BrandId === device.selectedBrand.id)
+    filterArr = device.devices.filter((deviceEl) => deviceEl.brandId === device.selectedBrand.id)
   } 
   
   return (

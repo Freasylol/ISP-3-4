@@ -1,6 +1,8 @@
-import { Card, CardContent, Grid, makeStyles, requirePropFactory, Typography } from "@material-ui/core";
+import { Card, CardContent, Grid, makeStyles, Typography } from "@material-ui/core";
 import Button from '@mui/material/Button';
-import appleIphone13  from '../img/apple-iphone13.jpg'
+import appleIphone13  from '../img/apple-iphone13.jpg';
+import appleIphone13ProMax from '../img/apple-iphone13promax.jpg';
+import amdRyzen5600x from '../img/amd-ryzen5600x.jpg';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,22 +42,34 @@ const DeviceItem = ({device, types, brands, deviceStore, basket}) => {
      
   }
 
+  const setImg = (img) => {
+    switch(img) {
+      case 'apple-iphone13.jpg':
+        return appleIphone13;
+        break;
+      case 'apple-iphone13promax.jpg':
+        return appleIphone13ProMax;
+        break;
+      case 'amd-ryzen5600x.jpg':
+        return amdRyzen5600x;
+        break;
+    }
+  }
+
   const classes = useStyles();
   let deviceType = '';
   let deviceBrand = '';
   for (let type of types) {
-    if (device.TypeId === type.id) {
+    if (device.typeId === type.id) {
       deviceType = type.name;
     }
   }
 
   for (let brand of brands) {
-    if (device.BrandId === brand.id) {
+    if (device.brandId === brand.id) {
       deviceBrand = brand.name;
     }
   }
-
-  const imgPath = '../img/iphone13.jpg'
 
   return (
     <Grid container className={classes.deviceItem}>
@@ -63,7 +77,7 @@ const DeviceItem = ({device, types, brands, deviceStore, basket}) => {
         <Card>
           <CardContent className={classes.cardContent}>
             {/* <img src='http://via.placeholder.com/150x150' height="150" width="150"  alt="device img"></img> */}
-            <img src={appleIphone13} height="200" width="150"  alt="device img"></img>
+            <img src={setImg(device.img)} height="200" width="150"  alt="device img"></img>
             <Typography className={classes.cardTitle}>{deviceType}</Typography>
             <Typography className={classes.cardTitle}>{deviceBrand}</Typography>
             <Typography className={classes.cardTitle}>{device.name}</Typography>
